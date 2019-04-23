@@ -1,20 +1,24 @@
 package com.universy.student.data.model;
 
 
-public class StudentDataRequest {
+public class StudentKey {
+
     private String mail;
+
+    public StudentKey() {
+    }
+
+    public StudentKey(String mail) {
+        this.mail = mail;
+    }
 
     public String getMail() {
         return mail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
     @Override
     public String toString() {
-        return "StudentDataRequest{" +
+        return "StudentKey{" +
                 "mail='" + mail + '\'' +
                 '}';
     }

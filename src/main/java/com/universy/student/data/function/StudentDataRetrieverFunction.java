@@ -2,44 +2,40 @@ package com.universy.student.data.function;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.universy.common.dynamo.DynamoDBMapperFactory;
-import com.universy.student.data.function.exceptions.MailFormatException;
 import com.universy.student.data.function.exceptions.StudentNotFoundException;
 import com.universy.student.data.model.StudentData;
-import com.universy.student.data.model.StudentDataRequest;
+import com.universy.student.data.model.StudentKey;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 import java.util.function.Function;
 
-public class StudentDataRetrieverFunction implements Function<StudentDataRequest, StudentData> {
+public class StudentDataRetrieverFunction implements Function<StudentKey, StudentData> {
 
     private static Logger LOGGER = LogManager.getLogger(StudentDataRetrieverFunction.class);
 
     @Override
-    public StudentData apply(StudentDataRequest studentDataRequest) {
+    public StudentData apply(StudentKey studentKey) {
 
-        LOGGER.info("Recieved request:" + studentDataRequest);
+        LOGGER.info("Received student to get data:" + studentKey);
 
-        String studentMail = studentDataRequest.getMail();
+        Optional<StudentData> studentData = getStudentFromDataBase(studentKey);
 
-        if(studentMail.matches("^\\w+@[a-zA-Z_]+?(\\.[a-zA-Z]{1,3})+")){
-            LOGGER.info("The mail is present");
-
-            DynamoDBMapper mapper = DynamoDBMapperFactory.createMapper();
-            Optional<StudentData> studentData = Optional.ofNullable(mapper.load(StudentData.class, studentMail));
-
-            if(studentData.isPresent()){
-                LOGGER.info("The student is present");
-                return studentData.get();
-            } else {
-                throw new StudentNotFoundException(String.format("The student '%s' does not exist.", studentMail));
-            }
+        if (studentData.isPresent()) {
+            LOGGER.info("The student is present in the database.");
+            return studentData.get();
         } else {
-            throw new MailFormatException("Mail has incorrect format: " + studentMail);
+            LOGGER.info("The student is not present in the database.");
+            throw new StudentNotFoundException(studentKey);
         }
     }
 
-
-
+    private Optional<StudentData> getStudentFromDataBase(StudentKey studentKey){
+        DynamoDBMapper mapper = DynamoDBMapperFactory.createMapper();
+        return Optional.ofNullable(mapper.load(StudentData.class, studentKey));
+    }
 }
+
+
+

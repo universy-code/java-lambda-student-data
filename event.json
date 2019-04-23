@@ -1,5 +1,5 @@
 {
-  "body": "{\"name\":\"Gonza\"}",
+  "body":"{\"studentKey\" : {\t\"mail\": \"gonzalo.saad@gmail.com\"},\"name\": \"Gonzalo\",\"lastName\" : \"Saad\"}",
   "resource": "/{proxy+}",
   "path": "/path/to/resource",
   "httpMethod": "POST",

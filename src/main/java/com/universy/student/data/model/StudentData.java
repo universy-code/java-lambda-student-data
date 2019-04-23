@@ -3,12 +3,15 @@ package com.universy.student.data.model;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
+import com.universy.student.data.model.converters.StudentKeyConverter;
 
 @DynamoDBTable(tableName = "student-data")
 public class StudentData {
 
     @DynamoDBHashKey
-    private String mail;
+    @DynamoDBTypeConverted(converter = StudentKeyConverter.class)
+    private StudentKey studentKey;
 
     @DynamoDBAttribute
     private String name;
@@ -16,12 +19,12 @@ public class StudentData {
     @DynamoDBAttribute
     private String lastName;
 
-    public String getMail() {
-        return mail;
+    public StudentKey getStudentKey() {
+        return studentKey;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setStudentKey(StudentKey studentKey) {
+        this.studentKey = studentKey;
     }
 
     public String getName() {
@@ -43,7 +46,7 @@ public class StudentData {
     @Override
     public String toString() {
         return "StudentData{" +
-                "mail='" + mail + '\'' +
+                "studentKey='" + studentKey + '\'' +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
