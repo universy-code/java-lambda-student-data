@@ -1,4 +1,4 @@
-package com.universy.student.data.function.exceptions;
+package com.universy.student.data.model.converters.exceptions;
 
 import com.universy.common.lambda.api.exceptions.StatusCodeTypeException;
 

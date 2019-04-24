@@ -18,14 +18,18 @@ provider:
         - "dynamodb:ListStreams"
         - "dynamodb:GetRecords"
       Resource: "*"
+  environment:
+    STAGE: ${self:provider.stage}
 
 package:
-  artifact: build/distributions/${self:service}.zip
+  artifact: build/distributions/${self:service}-1.0.zip
 
 functions:
   java-lambda-student-data-retriever:
     name: ${self:provider.stage}-${self:service}-retriever
     handler: com.universy.student.data.RetrieverHandler
-    environment:
-      STAGE: ${self:provider.stage}
+
+  java-lambda-student-data-writer:
+    name: ${self:provider.stage}-${self:service}-writer
+    handler: com.universy.student.data.WriterHandler
 
