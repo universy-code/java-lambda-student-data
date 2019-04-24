@@ -1,15 +1,15 @@
 package com.universy.student.data;
 
 import com.universy.common.lambda.api.handler.BaseAPIGatewayQueryParamsHandler;
-import com.universy.student.data.function.StudentDataRetrieverFunction;
-import com.universy.student.data.model.StudentData;
+import com.universy.student.data.function.StudentRetrieverFunction;
+import com.universy.student.data.model.Student;
 import com.universy.student.data.model.StudentKey;
 
-public class RetrieverHandler extends BaseAPIGatewayQueryParamsHandler<StudentKey, StudentData, StudentDataRetrieverFunction> {
+public class RetrieverHandler extends BaseAPIGatewayQueryParamsHandler<StudentKey, Student, StudentRetrieverFunction> {
 
     @Override
-    protected Class<StudentDataRetrieverFunction> getFunctionClass() {
-        return StudentDataRetrieverFunction.class;
+    protected Class<StudentRetrieverFunction> getFunctionClass() {
+        return StudentRetrieverFunction.class;
     }
 
     @Override
@@ -18,7 +18,7 @@ public class RetrieverHandler extends BaseAPIGatewayQueryParamsHandler<StudentKe
     }
 
     @Override
-    protected Class<StudentData> getOutputClass() {
-        return StudentData.class;
+    protected Class<Student> getOutputClass() {
+        return Student.class;
     }
 }

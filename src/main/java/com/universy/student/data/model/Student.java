@@ -6,8 +6,10 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
 import com.universy.student.data.model.converters.StudentKeyConverter;
 
+import java.util.Objects;
+
 @DynamoDBTable(tableName = "student-data")
-public class StudentData {
+public class Student {
 
     @DynamoDBHashKey
     @DynamoDBTypeConverted(converter = StudentKeyConverter.class)
@@ -45,10 +47,25 @@ public class StudentData {
 
     @Override
     public String toString() {
-        return "StudentData{" +
+        return "Student{" +
                 "studentKey='" + studentKey + '\'' +
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student that = (Student) o;
+        return Objects.equals(studentKey, that.studentKey) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(lastName, that.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentKey, name, lastName);
     }
 }
