@@ -6,7 +6,7 @@ import com.universy.student.data.model.StudentKey;
 
 public class StudentKeyConverter implements DynamoDBTypeConverter<String, StudentKey> {
 
-    private static final String MAIL_FORMAT_REGEX = "^(?=.*[a-z0-9])[a-z0-9!_.]+@[a-zA-Z_]+?(\\.[a-zA-Z]{1,3})+";
+    private static final String MAIL_FORMAT_REGEX = "[a-z0-9!_.]+@[a-zA-Z_]+?(\\.[a-zA-Z]{1,3})+";
     private static final String WRONG_MAIL_FORMAT_MESSAGE = "Wrong mail format: ";
 
     @Override
