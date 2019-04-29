@@ -2,6 +2,8 @@ package com.universy.student.data.function;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.universy.common.dynamo.DynamoDBMapperFactory;
+import com.universy.student.data.function.validator.StudentValidator;
+import com.universy.student.data.function.validator.Validator;
 import com.universy.student.data.model.Student;
 import com.universy.student.data.model.StudentKey;
 import org.apache.logging.log4j.LogManager;
@@ -11,11 +13,15 @@ import java.util.function.Function;
 
 public class StudentWriterFunction implements Function<Student, StudentKey> {
 
-    private static Logger LOGGER = LogManager.getLogger(StudentRetrieverFunction.class);
+    private static Logger LOGGER = LogManager.getLogger(StudentWriterFunction.class);
 
     @Override
     public StudentKey apply(Student student) {
         LOGGER.info("Received student data to store: {}.", student.getStudentKey());
+
+        Validator studentValidator = new StudentValidator(student);
+        studentValidator.validate();
+
         return storeStudentInDataBase(student);
     }
 
@@ -25,5 +31,4 @@ public class StudentWriterFunction implements Function<Student, StudentKey> {
         LOGGER.info("Student saved successfully to database. {}.", student.getStudentKey());
         return student.getStudentKey();
     }
-
 }
