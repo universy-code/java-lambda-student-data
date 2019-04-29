@@ -7,14 +7,10 @@ import java.net.HttpURLConnection;
 
 public class StudentLastNameFormatException extends StatusCodeTypeException {
 
-    private static final String ERROR_MESSAGE_TEMPLATE = "The student '%s' does not exist.";
+    private static final String ERROR_MESSAGE_TEMPLATE = "The student´s last name has wrong format: '%s'.";
 
-    public StudentLastNameFormatException(StudentKey studentKey){
-        this(String.format(ERROR_MESSAGE_TEMPLATE, studentKey.getMail()));
-    }
-
-
-    public StudentLastNameFormatException(String s) {
-        super(s, HttpURLConnection.HTTP_BAD_REQUEST);
+    public StudentLastNameFormatException(String lastName){
+        super(String.format(ERROR_MESSAGE_TEMPLATE, lastName),
+                HttpURLConnection.HTTP_BAD_REQUEST);
     }
 }

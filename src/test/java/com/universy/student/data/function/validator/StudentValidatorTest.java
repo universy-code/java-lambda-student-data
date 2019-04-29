@@ -12,36 +12,40 @@ public class StudentValidatorTest {
     private static final String CORRECT_LASTNAME = "Example LastName";
     private static final String INCORRECT_NAME = " ";
     private static final String INCORRECT_LASTNAME = " ";
-    private static final Student CORRECT_STUDENT = new Student();
-    private static final Student INCORRECT_STUDENT = new Student();
     private static final StudentKey STUDENT_KEY = new StudentKey("new_email@example.com");
 
     private Validator studentValidator;
 
-    @Test()
+    @Test
     public void studentValid(){
-        CORRECT_STUDENT.setName(CORRECT_NAME);
-        CORRECT_STUDENT.setLastName(CORRECT_LASTNAME);
-        CORRECT_STUDENT.setStudentKey(STUDENT_KEY);
-        studentValidator = new StudentValidator(CORRECT_STUDENT);
+
+        Student student = createStudent(CORRECT_NAME, CORRECT_LASTNAME, STUDENT_KEY);
+        studentValidator = new StudentValidator(student);
         studentValidator.validate();
     }
 
     @Test(expected = StudentNameFormatException.class)
     public void nameNotValid(){
-        INCORRECT_STUDENT.setName(INCORRECT_NAME);
-        INCORRECT_STUDENT.setLastName(CORRECT_LASTNAME);
-        INCORRECT_STUDENT.setStudentKey(STUDENT_KEY);
-        studentValidator = new StudentValidator(INCORRECT_STUDENT);
+
+        Student student = createStudent(INCORRECT_NAME, CORRECT_LASTNAME, STUDENT_KEY);
+        studentValidator = new StudentValidator(student);
         studentValidator.validate();
     }
 
     @Test(expected = StudentLastNameFormatException.class)
     public void lastNameNotValid(){
-        INCORRECT_STUDENT.setName(CORRECT_NAME);
-        INCORRECT_STUDENT.setLastName(INCORRECT_LASTNAME);
-        INCORRECT_STUDENT.setStudentKey(STUDENT_KEY);
-        studentValidator = new StudentValidator(INCORRECT_STUDENT);
+
+        Student student = createStudent(CORRECT_NAME, INCORRECT_LASTNAME, STUDENT_KEY);
+        studentValidator = new StudentValidator(student);
         studentValidator.validate();
+    }
+
+    private Student createStudent(String name, String lastName, StudentKey key){
+
+        Student student = new Student();
+        student.setName(name);
+        student.setLastName(lastName);
+        student.setStudentKey(key);
+        return student;
     }
 }

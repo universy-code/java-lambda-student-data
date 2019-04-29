@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 public class StudentWriterFunction implements Function<Student, StudentKey> {
 
-    private static Logger LOGGER = LogManager.getLogger(StudentRetrieverFunction.class);
+    private static Logger LOGGER = LogManager.getLogger(StudentWriterFunction.class);
 
     @Override
     public StudentKey apply(Student student) {
@@ -31,5 +31,4 @@ public class StudentWriterFunction implements Function<Student, StudentKey> {
         LOGGER.info("Student saved successfully to database. {}.", student.getStudentKey());
         return student.getStudentKey();
     }
-
 }

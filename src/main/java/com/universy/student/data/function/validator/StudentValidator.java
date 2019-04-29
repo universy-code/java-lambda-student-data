@@ -11,10 +11,21 @@ public class StudentValidator implements Validator {
 
     @Override
     public void validate() {
-        if(student.getName() == " "){
+
+        validateName();
+        validateLastName();
+    }
+
+    public void validateName(){
+
+        if(student.getName().trim().isEmpty()){
             throw new StudentNameFormatException(student.getName());
         }
-        if(student.getLastName() == " "){
+    }
+
+    public void validateLastName(){
+
+        if(student.getLastName().trim().isEmpty()){
             throw new StudentLastNameFormatException(student.getLastName());
         }
     }

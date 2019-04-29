@@ -27,6 +27,9 @@ import static org.mockito.Matchers.eq;
 public class StudentWriterFunctionTest {
 
     private static final String MOCK_MAIL = "mail@example.com";
+    private static final String MOCK_NAME = "Example Name";
+    private static final String MOCK_LASTNAME = "Example LastName";
+
 
     private DynamoDBMapper mapper;
 
@@ -43,6 +46,9 @@ public class StudentWriterFunctionTest {
 
         Student student = new Student();
         student.setStudentKey(studentKey);
+        student.setName(MOCK_NAME);
+        student.setLastName(MOCK_LASTNAME);
+
 
         Function<Student, StudentKey> function = new StudentWriterFunction();
         StudentKey retrievedKey = function.apply(student);
