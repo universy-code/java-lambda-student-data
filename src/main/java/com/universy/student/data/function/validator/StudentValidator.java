@@ -16,14 +16,14 @@ public class StudentValidator implements Validator {
         validateLastName();
     }
 
-    public void validateName(){
+    private void validateName(){
 
         if(student.getName().trim().isEmpty()){
             throw new StudentNameFormatException(student.getName());
         }
     }
 
-    public void validateLastName(){
+    private void validateLastName(){
 
         if(student.getLastName().trim().isEmpty()){
             throw new StudentLastNameFormatException(student.getLastName());
