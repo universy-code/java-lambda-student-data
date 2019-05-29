@@ -1,4 +1,4 @@
-# Java Lambda Student Data
+# Java Lambda Student Profile
 
 ## AWS Lambda que se encarga de escribir y leer los datos del perfil de los estudiantes.
 

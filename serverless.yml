@@ -1,5 +1,5 @@
 
-service: java-lambda-student-data # NOTE: update this with your service name
+service: java-lambda-student-profile # NOTE: update this with your service name
 
 provider:
   name: aws
@@ -25,11 +25,11 @@ package:
   artifact: build/distributions/${self:service}-1.0.zip
 
 functions:
-  java-lambda-student-data-retriever:
-    name: ${self:provider.stage}-${self:service}-retriever
-    handler: com.universy.student.data.RetrieverHandler
+  get:
+    name: ${self:provider.stage}-${self:service}-get
+    handler: com.universy.student.profile.StudentProfileGetHandler
 
-  java-lambda-student-data-writer:
-    name: ${self:provider.stage}-${self:service}-writer
-    handler: com.universy.student.data.WriterHandler
+  put:
+    name: ${self:provider.stage}-${self:service}-put
+    handler: com.universy.student.profile.StudentProfilePutHandler
 

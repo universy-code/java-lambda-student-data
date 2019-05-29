@@ -75,7 +75,7 @@ task copyDependenciesToLocalRunFolder(type: Copy) {
 }
 
 
-task buildForLocalRun() {
+task buildForLocalRun {
     doLast{
         println "Built for local run under build/run"
     }
