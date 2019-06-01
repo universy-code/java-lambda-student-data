@@ -1,6 +1,6 @@
 package com.universy.student.profile;
 
-import com.universy.common.lambda.api.handler.BaseAPIGatewayBodyHandler;
+import com.universy.lambda.api.handlers.handler.BaseAPIGatewayBodyHandler;
 import com.universy.student.profile.function.StudentProfilePutFunction;
 import com.universy.student.profile.model.Student;
 import com.universy.student.profile.model.StudentKey;

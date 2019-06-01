@@ -1,6 +1,6 @@
 package com.universy.student.profile.function.exceptions;
 
-import com.universy.common.lambda.api.exceptions.StatusCodeTypeException;
+import com.universy.lambda.api.handlers.exceptions.StatusCodeTypeException;
 import com.universy.student.profile.model.StudentKey;
 
 import java.net.HttpURLConnection;

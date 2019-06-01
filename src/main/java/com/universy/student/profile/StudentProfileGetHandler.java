@@ -1,6 +1,6 @@
 package com.universy.student.profile;
 
-import com.universy.common.lambda.api.handler.BaseAPIGatewayQueryParamsHandler;
+import com.universy.lambda.api.handlers.handler.BaseAPIGatewayQueryParamsHandler;
 import com.universy.student.profile.function.StudentProfileGetFunction;
 import com.universy.student.profile.model.Student;
 import com.universy.student.profile.model.StudentKey;

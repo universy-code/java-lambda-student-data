@@ -34,8 +34,8 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4JVersion
 
     // Universy
-    compile "com.github.universy-code:java-dynamo-client:${javaCommonDynamoVersion}"
-    compile "com.github.universy-code:java-lambda-api-handlers:${javaCommonLambdaVersion}"
+    compile "com.github.universy-code:java-dynamo-client:${javaDynamoClientVersion}"
+    compile "com.github.universy-code:java-lambda-api-handlers:${javaLambdaApiHandlersVersion}"
 
     // JUnit
     testCompile group: 'junit', name: 'junit', version: junitVersion
