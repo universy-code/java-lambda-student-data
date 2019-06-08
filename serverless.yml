@@ -4,9 +4,9 @@ service: java-lambda-student-profile # NOTE: update this with your service name
 provider:
   name: aws
   runtime: java8
-  profile: serverless
+  profile: ${env:PROFILE, 'serverless'}
   stage: ${opt:stage, 'dev'}
-  region: sa-east-1
+  region: ${env:REGION, 'sa-east-1'}
   iamRoleStatements:
     - Effect: "Allow"
       Action:
