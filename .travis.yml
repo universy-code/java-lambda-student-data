@@ -6,6 +6,10 @@ jdk:
 os:
   - linux
 
+branches:
+  only:
+    - master
+
 script:
   - ./gradlew clean
   - ./gradlew build
