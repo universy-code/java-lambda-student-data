@@ -24,6 +24,12 @@ public class Student {
     @DynamoDBAttribute
     private String alias;
 
+    @DynamoDBAttribute
+    private String currentInstitution;
+
+    @DynamoDBAttribute
+    private String currentCareer;
+
     public StudentKey getStudentKey() {
         return studentKey;
     }
@@ -64,12 +70,30 @@ public class Student {
         return Objects.equals(studentKey, student.studentKey) &&
                 Objects.equals(name, student.name) &&
                 Objects.equals(lastName, student.lastName) &&
-                Objects.equals(alias, student.alias);
+                Objects.equals(alias, student.alias) &&
+                Objects.equals(currentInstitution, student.currentInstitution) &&
+                Objects.equals(currentCareer, student.currentCareer);
+    }
+
+    public String getCurrentInstitution() {
+        return currentInstitution;
+    }
+
+    public void setCurrentInstitution(String currentInstitution) {
+        this.currentInstitution = currentInstitution;
+    }
+
+    public String getCurrentCareer() {
+        return currentCareer;
+    }
+
+    public void setCurrentCareer(String currentCareer) {
+        this.currentCareer = currentCareer;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(studentKey, name, lastName, alias);
+        return Objects.hash(studentKey, name, lastName, alias, currentInstitution, currentCareer);
     }
 
     @Override
@@ -79,6 +103,8 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", alias='" + alias + '\'' +
+                ", currentInstitution='" + currentInstitution + '\'' +
+                ", currentCareer='" + currentCareer + '\'' +
                 '}';
     }
 }
