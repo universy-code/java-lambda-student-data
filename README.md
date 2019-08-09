@@ -1,11 +1,11 @@
 # Java Lambda Student Profile
 [![Build Status](https://travis-ci.com/universy-code/java-lambda-student-profile.svg?branch=master)](https://travis-ci.com/universy-code/java-lambda-student-profile)
 
-## AWS Lambda que se encarga de escribir y leer los datos del perfil de los estudiantes.
+## AWS Lambda that writes and reads the account profile information in Cognito
 
-### Para compilar. 
+### To compile. 
 
-Ejecute:
+Run in console:
 
 `./gradlew clean build`
  
