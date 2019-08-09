@@ -9,17 +9,20 @@ Resources:
       Timeout: 300
       Environment:
         Variables:
-          AWS_REGION: sa-east-1
           STAGE: dev
-  put:
+          CLIENT_ID: client
+          AWS_COGNITO_REGION: us-east-1
+
+  post:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./build/run
-      Handler: com.universy.student.profile.StudentProfilePutHandler
+      Handler: com.universy.student.profile.StudentProfilePostHandler
       Runtime: java8
       MemorySize: 512
       Timeout: 300
       Environment:
         Variables:
-          AWS_REGION: sa-east-1
           STAGE: dev
+          CLIENT_ID: client
+          AWS_COGNITO_REGION: us-east-1

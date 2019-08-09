@@ -1,5 +1,5 @@
 {
-  "body": "{\"alias\":\"Gonza2\",\"lastName\":\"Saad\",\"name\":\"Gonzalo\",\"studentKey\":{\"mail\":\"gonzalo.saad.2@gmail.com\"}}",
+  "body":"{\"username\": \"gon\",\"email\" : \"saad.gonzalo.ale@gmail.com\",\"givenName\": \"Gonzalo Alejandro\",\"familyName\" : \"Saad\"}",
   "resource": "/{proxy+}",
   "path": "/path/to/resource",
   "httpMethod": "PUT",
@@ -14,6 +14,7 @@
     "baz": "qux"
   },
   "headers": {
+    "AccessToken" : "eyJraWQiOiIxY1wvMXhVamxwR3BHZlVQYlJjQ0VmaHU2R1NlNHJjZzRWN1VPXC9Db0twNEU9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI4ZTg0NmQwNS0zY2U5LTRmMGYtYmM2MS0zYzEzOGMxOTdkMjgiLCJldmVudF9pZCI6ImJkYzE5Yzc3LTE3NzUtNDQ3My05YjkwLTQ1OTJlNjU3N2VjNSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1NjUzOTEzODAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX3ZZamZTTUpCQyIsImV4cCI6MTU2NTM5NDk4MCwiaWF0IjoxNTY1MzkxMzgwLCJqdGkiOiJkNWI0ZTQxOC0yMGRiLTQ4NGYtYTE3OS0yMzEyOTExMzljZGMiLCJjbGllbnRfaWQiOiI1YTdqcWE3b3Q2b2NvcWpoZW92a2dsOHY2aiIsInVzZXJuYW1lIjoiZ29uIn0.LIWLhpKrsdFD1M4JJaz4TIvE49lzJR0pcGvyCubQM8t4yAvaSx-rZDNpdbKQQVGfCtih7c0NVKRWYrstAEIMdznpN8dB4Texnfi_ILFKmvIZWMJ8l7IIo-OnGEutL-osZwQbIjD-utg1VwJCu_IspJqCoDNV9R8mHcFlc6PHnfeYdKbpiLrkC29qLkfSVD8FidxUCzOmUOBf98rXD_4P7J7-FR0Z3bwfqTYOZlSxkyfseqS81dX1iQSLbYU8Xh0H0MXqfMs6JtHuAhxJqtuE4aNZyYP8sSHsBwt77R82RAh__xD1bOiYHop7_cArF29jLeKDNEIIDwTS5iWNlI8BwA",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
     "Accept-Encoding": "gzip, deflate, sdch",
     "Accept-Language": "en-US,en;q=0.8",
