@@ -1,5 +1,5 @@
 
-service: java-lambda-student-profile # NOTE: update this with your service name
+service: java-lambda-student-profile
 
 provider:
   name: aws
@@ -10,16 +10,13 @@ provider:
   iamRoleStatements:
     - Effect: "Allow"
       Action:
-        - "dynamodb:PutItem"
-        - "dynamodb:DeleteItem"
-        - "dynamodb:GetItem"
-        - "dynamodb:Query"
-        - "dynamodb:UpdateItem"
-        - "dynamodb:ListStreams"
-        - "dynamodb:GetRecords"
+        - "cognito-idp:GetUser"
+        - "cognito-idp:UpdateUserAttributes"
       Resource: "*"
   environment:
     STAGE: ${self:provider.stage}
+    CLIENT_ID: ${env:CLIENT_ID, opt:client-id}
+    AWS_COGNITO_REGION: ${env:AWS_COGNITO_REGION, 'us-east-1'}
 
 package:
   artifact: build/distributions/${self:service}-1.0.zip
@@ -29,7 +26,7 @@ functions:
     name: ${self:provider.stage}-${self:service}-get
     handler: com.universy.student.profile.StudentProfileGetHandler
 
-  put:
-    name: ${self:provider.stage}-${self:service}-put
-    handler: com.universy.student.profile.StudentProfilePutHandler
+  post:
+    name: ${self:provider.stage}-${self:service}-post
+    handler: com.universy.student.profile.StudentProfilePostHandler
 

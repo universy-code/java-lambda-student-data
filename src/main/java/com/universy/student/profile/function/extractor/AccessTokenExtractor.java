@@ -10,7 +10,7 @@ public class AccessTokenExtractor {
     public String getAccessTokenString(APIContext apiContext){
         return Optional.ofNullable(apiContext)
                 .map(APIContext::getHeaders)
-                .map(headers -> headers.get("AccessToken"))
+                .map(headers -> headers.get("access-token"))
                 .orElseThrow(NoAccessTokenFoundException::new);
     }
 }

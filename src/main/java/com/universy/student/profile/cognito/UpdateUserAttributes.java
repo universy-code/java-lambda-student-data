@@ -33,7 +33,6 @@ public class UpdateUserAttributes implements CognitoAction<UpdateAttributesParam
                         new CognitoAttributeBuilder()
                                 .withGivenName(params.getGivenName())
                                 .withFamilyName(params.getFamilyName())
-                                .withEmail(params.getEmail())
                                 .build()
                 );
     }
