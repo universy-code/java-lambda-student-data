@@ -3,7 +3,7 @@
 
 ## AWS Lambda that writes and reads the account profile information in Cognito
 
-### To compile. 
+### To compile
 
 Run in console:
 
