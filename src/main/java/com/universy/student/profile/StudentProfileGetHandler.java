@@ -1,24 +1,16 @@
 package com.universy.student.profile;
 
-import com.universy.lambda.api.handlers.handler.BaseAPIGatewayQueryParamsHandler;
-import com.universy.student.profile.function.StudentProfileGetFunction;
+import com.universy.lambda.api.handlers.handler.apigateway.supplier.SupplierHandler;
+import com.universy.student.profile.function.StudentProfileGetSupplier;
 import com.universy.student.profile.model.Student;
-import com.universy.student.profile.model.StudentKey;
 
-public class StudentProfileGetHandler extends BaseAPIGatewayQueryParamsHandler<StudentKey, Student, StudentProfileGetFunction> {
+import java.util.function.Supplier;
 
-    @Override
-    protected Class<StudentProfileGetFunction> getFunctionClass() {
-        return StudentProfileGetFunction.class;
-    }
+public class StudentProfileGetHandler extends SupplierHandler<Student> {
 
     @Override
-    protected Class<StudentKey> getInputClass() {
-        return StudentKey.class;
+    protected Supplier<Student> getSupplier() {
+        return new StudentProfileGetSupplier();
     }
 
-    @Override
-    protected Class<Student> getOutputClass() {
-        return Student.class;
-    }
 }

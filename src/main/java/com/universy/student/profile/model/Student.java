@@ -1,110 +1,56 @@
 package com.universy.student.profile.model;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverted;
-import com.universy.student.profile.model.converters.StudentKeyConverter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Objects;
-
-@DynamoDBTable(tableName = "student-profile")
 public class Student {
 
-    @DynamoDBHashKey
-    @DynamoDBTypeConverted(converter = StudentKeyConverter.class)
-    private StudentKey studentKey;
+    private String username;
+    private String givenName;
+    private String familyName;
+    private String email;
 
-    @DynamoDBAttribute
-    private String name;
-
-    @DynamoDBAttribute
-    private String lastName;
-
-    @DynamoDBAttribute
-    private String alias;
-
-    @DynamoDBAttribute
-    private String currentInstitution;
-
-    @DynamoDBAttribute
-    private String currentCareer;
-
-    public StudentKey getStudentKey() {
-        return studentKey;
+    public Student(){
     }
 
-    public void setStudentKey(StudentKey studentKey) {
-        this.studentKey = studentKey;
+    public Student(@JsonProperty(value = "username", required = true) String username,
+                   @JsonProperty(value = "givenName", required = true) String givenName,
+                   @JsonProperty(value = "familyName", required = true) String familyName,
+                   @JsonProperty(value = "email", required = true) String email) {
+        this.username = username;
+        this.givenName = givenName;
+        this.familyName = familyName;
+        this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getGivenName() {
+        return givenName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
     }
 
-    public String getAlias() {
-        return alias;
+    public String getFamilyName() {
+        return familyName;
     }
 
-    public void setAlias(String alias) {
-        this.alias = alias;
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return Objects.equals(studentKey, student.studentKey) &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(lastName, student.lastName) &&
-                Objects.equals(alias, student.alias) &&
-                Objects.equals(currentInstitution, student.currentInstitution) &&
-                Objects.equals(currentCareer, student.currentCareer);
+    public String getEmail() {
+        return email;
     }
 
-    public String getCurrentInstitution() {
-        return currentInstitution;
-    }
-
-    public void setCurrentInstitution(String currentInstitution) {
-        this.currentInstitution = currentInstitution;
-    }
-
-    public String getCurrentCareer() {
-        return currentCareer;
-    }
-
-    public void setCurrentCareer(String currentCareer) {
-        this.currentCareer = currentCareer;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(studentKey, name, lastName, alias, currentInstitution, currentCareer);
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "studentKey=" + studentKey +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", alias='" + alias + '\'' +
-                ", currentInstitution='" + currentInstitution + '\'' +
-                ", currentCareer='" + currentCareer + '\'' +
-                '}';
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
