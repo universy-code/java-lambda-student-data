@@ -1,10 +1,10 @@
 package com.universy.student.profile.function.exceptions;
 
-import com.universy.lambda.api.handlers.exceptions.BusinessException;
+import com.universy.lambda.api.handlers.exceptions.APIException;
 
 import java.net.HttpURLConnection;
 
-public class OperationNotAuthorizedException extends BusinessException {
+public class OperationNotAuthorizedException extends APIException {
 
     private static final String ERROR_MESSAGE_TEMPLATE = "The operation is not authorized.";
 

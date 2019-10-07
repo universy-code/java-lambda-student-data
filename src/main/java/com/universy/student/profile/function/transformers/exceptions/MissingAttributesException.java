@@ -1,10 +1,10 @@
 package com.universy.student.profile.function.transformers.exceptions;
 
-import com.universy.lambda.api.handlers.exceptions.BusinessException;
+import com.universy.lambda.api.handlers.exceptions.APIException;
 
 import java.net.HttpURLConnection;
 
-public class MissingAttributesException extends BusinessException {
+public class MissingAttributesException extends APIException {
 
     private static final String ERROR_MESSAGE = "There are missing attributes in cognito user pool for the user.";
 
