@@ -1,17 +1,20 @@
-package com.universy.student.profile.function;
+package app.universy.student.profile.function;
 
+import app.universy.lambda.apigw.context.Contextualized;
+import app.universy.lambda.apigw.handler.APIHandler;
+import app.universy.lambda.apigw.handler.APIMethod;
+import app.universy.student.profile.cognito.GetUser;
 import com.amazonaws.services.cognitoidp.model.GetUserResult;
 import com.amazonaws.services.cognitoidp.model.NotAuthorizedException;
 import com.universy.cognito.actions.CognitoAction;
-import com.universy.lambda.api.handlers.context.Contextualized;
-import com.universy.student.profile.cognito.GetUser;
-import com.universy.student.profile.function.exceptions.OperationNotAuthorizedException;
-import com.universy.student.profile.function.extractor.AccessTokenExtractor;
-import com.universy.student.profile.function.transformers.GetUserResultTransformer;
-import com.universy.student.profile.model.Student;
+import app.universy.student.profile.function.exceptions.OperationNotAuthorizedException;
+import app.universy.student.profile.function.extractor.AccessTokenExtractor;
+import app.universy.student.profile.function.transformers.GetUserResultTransformer;
+import app.universy.student.profile.model.Student;
 
 import java.util.function.Supplier;
 
+@APIHandler(method = APIMethod.GET)
 public class StudentProfileGetSupplier extends Contextualized implements Supplier<Student> {
 
     private final CognitoAction<String, GetUserResult> getUserAction;

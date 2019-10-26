@@ -1,12 +1,11 @@
-package com.universy.student.profile.function.transformers;
+package app.universy.student.profile.function.transformers;
 
+import app.universy.student.profile.cognito.Attributes;
+import app.universy.student.profile.function.transformers.exceptions.MissingAttributesException;
+import app.universy.student.profile.model.Student;
 import com.amazonaws.services.cognitoidp.model.AttributeType;
 import com.amazonaws.services.cognitoidp.model.GetUserResult;
-import com.universy.student.profile.cognito.Attributes;
-import com.universy.student.profile.function.transformers.exceptions.MissingAttributesException;
-import com.universy.student.profile.model.Student;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;

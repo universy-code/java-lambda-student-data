@@ -1,7 +1,7 @@
-package com.universy.student.profile.builder;
+package app.universy.student.profile.builder;
 
+import app.universy.student.profile.cognito.Attributes;
 import com.amazonaws.services.cognitoidp.model.AttributeType;
-import com.universy.student.profile.cognito.Attributes;
 
 import java.util.ArrayList;
 import java.util.List;

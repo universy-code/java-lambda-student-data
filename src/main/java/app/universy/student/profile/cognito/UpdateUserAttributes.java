@@ -1,12 +1,12 @@
-package com.universy.student.profile.cognito;
+package app.universy.student.profile.cognito;
 
+import app.universy.student.profile.model.UpdateAttributesParameters;
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.model.UpdateUserAttributesRequest;
 import com.amazonaws.services.cognitoidp.model.UpdateUserAttributesResult;
 import com.universy.cognito.CognitoIdentityProviderFactory;
 import com.universy.cognito.actions.CognitoAction;
-import com.universy.student.profile.builder.CognitoAttributeBuilder;
-import com.universy.student.profile.model.UpdateAttributesParameters;
+import app.universy.student.profile.builder.CognitoAttributeBuilder;
 
 public class UpdateUserAttributes implements CognitoAction<UpdateAttributesParameters, UpdateUserAttributesResult> {
 

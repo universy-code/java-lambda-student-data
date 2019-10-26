@@ -1,4 +1,4 @@
-package com.universy.student.profile.model;
+package app.universy.student.profile.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

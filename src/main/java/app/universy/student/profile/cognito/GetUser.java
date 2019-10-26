@@ -1,4 +1,4 @@
-package com.universy.student.profile.cognito;
+package app.universy.student.profile.cognito;
 
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.model.GetUserRequest;
