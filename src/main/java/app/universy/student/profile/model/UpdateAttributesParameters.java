@@ -1,4 +1,4 @@
-package com.universy.student.profile.model;
+package app.universy.student.profile.model;
 
 public class UpdateAttributesParameters {
     private String accessToken;

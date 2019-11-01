@@ -1,6 +1,6 @@
-package com.universy.student.profile.function.exceptions;
+package app.universy.student.profile.function.exceptions;
 
-import com.universy.lambda.api.handlers.exceptions.APIException;
+import app.universy.lambda.apigw.exceptions.APIException;
 
 import java.net.HttpURLConnection;
 

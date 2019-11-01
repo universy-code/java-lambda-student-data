@@ -24,10 +24,6 @@ package:
   artifact: build/distributions/${self:service}-1.0.zip
 
 functions:
-  get:
-    name: ${self:provider.stage}-${self:service}-get
-    handler: com.universy.student.profile.StudentProfileGetHandler
-
-  post:
-    name: ${self:provider.stage}-${self:service}-post
-    handler: com.universy.student.profile.StudentProfilePostHandler
+  handler:
+    name: ${self:provider.stage}-${self:service}
+    handler: app.universy.student.profile.Handler

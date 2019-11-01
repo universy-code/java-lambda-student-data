@@ -1,7 +1,7 @@
-package com.universy.student.profile.function.extractor;
+package app.universy.student.profile.function.extractor;
 
-import com.universy.lambda.api.handlers.context.api.APIContext;
-import com.universy.student.profile.function.extractor.exceptions.NoAccessTokenFoundException;
+import app.universy.lambda.apigw.context.api.APIContext;
+import app.universy.student.profile.function.extractor.exceptions.NoAccessTokenFoundException;
 
 import java.util.Optional;
 

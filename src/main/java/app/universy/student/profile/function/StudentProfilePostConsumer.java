@@ -1,17 +1,20 @@
-package com.universy.student.profile.function;
+package app.universy.student.profile.function;
 
+import app.universy.lambda.apigw.context.Contextualized;
+import app.universy.lambda.apigw.handler.APIHandler;
+import app.universy.lambda.apigw.handler.APIMethod;
+import app.universy.student.profile.cognito.UpdateUserAttributes;
+import app.universy.student.profile.function.exceptions.OperationNotAuthorizedException;
+import app.universy.student.profile.function.extractor.AccessTokenExtractor;
+import app.universy.student.profile.model.Student;
+import app.universy.student.profile.model.UpdateAttributesParameters;
 import com.amazonaws.services.cognitoidp.model.NotAuthorizedException;
 import com.amazonaws.services.cognitoidp.model.UpdateUserAttributesResult;
 import com.universy.cognito.actions.CognitoAction;
-import com.universy.lambda.api.handlers.context.Contextualized;
-import com.universy.student.profile.cognito.UpdateUserAttributes;
-import com.universy.student.profile.function.exceptions.OperationNotAuthorizedException;
-import com.universy.student.profile.function.extractor.AccessTokenExtractor;
-import com.universy.student.profile.model.Student;
-import com.universy.student.profile.model.UpdateAttributesParameters;
 
 import java.util.function.Consumer;
 
+@APIHandler(method = APIMethod.POST)
 public class StudentProfilePostConsumer extends Contextualized implements Consumer<Student> {
 
     private final CognitoAction<UpdateAttributesParameters, UpdateUserAttributesResult> updateUserAttributes;

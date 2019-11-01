@@ -1,4 +1,4 @@
-package com.universy.student.profile.cognito;
+package app.universy.student.profile.cognito;
 
 public interface Attributes {
     String GIVEN_NAME_ATTRIBUTE = "given_name";
